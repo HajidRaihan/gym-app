@@ -2,6 +2,8 @@ import { Body, Controller, Post } from "@nestjs/common";
 import { PrismaService } from "../../prisma/prisma.service";
 import { RegisterOwnerDto } from "./dto/register-owner.dto";
 import { AuthService } from "./auth.service";
+import { LoginDto } from "./dto/login.dto";
+import { throws } from "assert";
 
 @Controller('auth')
 export class AuthController {
@@ -10,5 +12,10 @@ export class AuthController {
     @Post('register-owner')
     registerOwner(@Body() dto: RegisterOwnerDto) {
         return this.authService.registerOwner(dto);
+    }
+
+    @Post('login')
+    login(@Body() dto: LoginDto) {
+        return this.authService.login(dto);
     }
 }

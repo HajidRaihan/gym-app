@@ -11,7 +11,6 @@ export class RegisterOwnerDto {
 
     @IsString()
     @MinLength(6)
-    @IsNotEmpty()
     password!: string;
 
     @IsString()
