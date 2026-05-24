@@ -21,7 +21,7 @@ enum Role {
 
 
 model Gym {
-   id        String   @id @default(cuid())
+  id        String   @id @default(cuid())
   name      String
   slug      String   @unique
 
@@ -33,13 +33,15 @@ model Gym {
 
 model User {
   id        String   @id @default(cuid())
+
   email     String   @unique
   password  String
+
   name      String?
-  role      Role
+  role      Role     @default(MEMBER)
 
   gymId     String?
-  gym       Gym?      @relation(fields: [gymId], references: [id])
+  gym       Gym? @relation(fields: [gymId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
