@@ -10,7 +10,7 @@ export default function HomePage() {
     const result =
       await authClient.signUp.email({
         name: "John Doe",
-        email: "johnwqwe@gmail.com",
+        email: "johnwqwess@gmail.com",
         password: "Password123!"
       });
 
